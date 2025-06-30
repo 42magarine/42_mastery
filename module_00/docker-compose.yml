@@ -1,0 +1,7 @@
+services:
+  python:
+    container_name: python
+    image: python
+    build: .
+    volumes:
+      - ./code:/python
