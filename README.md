@@ -1,1 +1,1 @@
-# python_for_data_science
+# 42_mastery
