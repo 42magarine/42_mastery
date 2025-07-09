@@ -1,7 +1,7 @@
 services:
   python:
     image: python
-    container_name: python_00
+    container_name: python_01
     build: .
     volumes:
       - .:/python
