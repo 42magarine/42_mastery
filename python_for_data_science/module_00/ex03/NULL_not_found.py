@@ -14,4 +14,5 @@ def NULL_not_found(object: any) -> int:
         return 1
     return 0
 
+
 # float("NaN") != float("NaN") -> True

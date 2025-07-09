@@ -15,6 +15,7 @@ current_date = date.today()
 formatted_date = current_date.strftime("%b %d %Y")
 print(formatted_date)
 
+
 # https://docs.python.org/3/library/time.html#functions
 # https://docs.python.org/3/library/datetime.html#date-objects
 # https://docs.python.org/3/library/string.html#format-specification-mini-language

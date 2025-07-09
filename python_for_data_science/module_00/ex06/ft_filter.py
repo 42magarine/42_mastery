@@ -1,5 +1,3 @@
-#!/usr/local/bin/python3
-
 def ft_filter(function, iterable):
     """
     ft_filter(function or None, iterable) --> filter object
@@ -11,4 +9,6 @@ def ft_filter(function, iterable):
         return (item for item in iterable if function(item))
     return (item for item in iterable if item)
 
+
 # https://docs.python.org/3/library/functions.html#filter
+# https://www.tutorialspoint.com/python/python_list_comprehension.htm

@@ -1,0 +1,5 @@
+[project]
+name = "ft_package"
+version = "0.0.1"
+description = "A test package"
+license = { text = "MIT" }

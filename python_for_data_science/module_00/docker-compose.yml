@@ -1,16 +1,7 @@
 services:
   python:
-    container_name: python
     image: python
+    container_name: python
     build: .
     volumes:
-      - ./ex00:/python/ex00
-      - ./ex01:/python/ex01
-      - ./ex02:/python/ex02
-      - ./ex03:/python/ex03
-      - ./ex04:/python/ex04
-      - ./ex05:/python/ex05
-      - ./ex06:/python/ex06
-      - ./ex07:/python/ex07
-      - ./ex08:/python/ex08
-      - ./ex09:/python/ex09
+      - .:/python
