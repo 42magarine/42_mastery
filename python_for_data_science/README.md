@@ -48,6 +48,8 @@ pip install flake8
 ### Check if the Python code follows the [PEP8](https://peps.python.org/pep-0008/) style guide:
 ```bash
 flake8 <file.py>
+# or
+flake8 .
 ```
 
 <br>
