@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/env python
 
 import matplotlib.pyplot as plt     # https://matplotlib.org
 from load_image import ft_load

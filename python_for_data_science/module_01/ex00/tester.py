@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/env python
 
 from give_bmi import give_bmi, apply_limit
 
