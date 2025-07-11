@@ -1,25 +1,43 @@
-all: up shell
+# Python Virtual Environment Makefile
+YELLOW=\033[33m
+RESET=\033[0m
 
-up:
-	docker compose up --build --detach
+.PHONY: all new start freeze clean
 
-start stop:
-	docker compose $@
+all: new upgrade install start
 
-ls:
-	docker compose ps --all
-	docker compose images
+new:
+	@if [ ! -d .venv ]; then \
+		echo "$(YELLOW)Creating Python virtual environment...$(RESET)"; \
+		python3 -m venv .venv; \
+	fi
 
-shell:
-	docker compose exec python sh
+upgrade:
+	@if [ -d .venv ]; then \
+		echo "$(YELLOW)Upgrading standard packages...$(RESET)"; \
+		.venv/bin/pip install --upgrade pip setuptools wheel; \
+	fi
 
-logs:
-	docker compose logs
+install:
+	@if [ -d .venv ] && [ -f requirements.txt ]; then \
+		echo "$(YELLOW)Installing packages from requirements.txt...$(RESET)"; \
+		.venv/bin/pip install -r requirements.txt; \
+	fi
+
+start:
+	@if [ -d .venv ]; then \
+		echo "$(YELLOW)Starting Python virtual environment...$(RESET)"; \
+		bash -c "source .venv/bin/activate && exec bash"; \
+	fi
+
+freeze:
+	@if [ -d .venv ]; then \
+		echo "$(YELLOW)Saving requirements.txt...$(RESET)"; \
+		.venv/bin/pip freeze > requirements.txt; \
+	fi
 
 clean:
-	docker compose down
-
-fclean: clean
-	docker system prune --all --force --volumes
-
-.PHONY: all up start stop ls shell logs clean fclean
+	@if [ -d .venv ]; then \
+		echo "$(YELLOW)Deleting virtual environment...$(RESET)"; \
+		rm -rf .venv; \
+	fi
