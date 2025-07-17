@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt     # https://matplotlib.org
 from load_csv import load
 
 
@@ -8,13 +8,13 @@ def main() -> None:
     """
     Display life expectancy data for a specific country.
     """
-    country_name = "Germany"
-
     df = load("life_expectancy_years.csv")
 
     if df is None:
         print("Failed to load the dataset.")
         return
+
+    country_name = "Germany"
 
     # Check if the country exists in the dataset
     if country_name not in df['country'].values:
@@ -41,7 +41,7 @@ def main() -> None:
     plt.ylabel("Life expectancy")
 
     # Customize the plot
-    plt.xticks(range(min(years), max(years)+1, 40))
+    plt.xticks(range(1800, 2051, 40))
 
     # Display the plot
     plt.show()
